@@ -1,0 +1,29 @@
+<h1>{{strings.homeTitle}}</h1>
+
+<form (ngSubmit)="onSubmit()" #homeForm="ngForm">
+  <div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">{{strings.name}}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name" placeholder="{{strings.enterName}}" required [(ngModel)]="candidateName" name="name" #name="ngModel">
+
+      <div [hidden]="name.valid || name.pristine"
+        class="alert alert-danger">
+        {{strings.nameIsRequired}}
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="tests"class="col-sm-2 col-form-label">{{strings.tests}}</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="tests" required
+        [(ngModel)]="selectedTestId" name="tests">
+        <option *ngFor="let test of tests" [value]="test.id">{{test.name}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row button-container">
+    <button type="submit" class="btn btn-success button" [disabled]="!homeForm.form.valid">{{strings.begin}}</button>
+  </div>
+</form>

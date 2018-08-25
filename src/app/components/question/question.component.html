@@ -1,0 +1,28 @@
+<div *ngIf="question">
+  <p class="question-text">{{question.question}}</p>
+  <form (ngSubmit)="onSubmit()" #questionForm="ngForm">
+    <div class="form-group row myrow">
+      <div class="btn-group btn-group-toggle options-container" data-toggle="buttons">
+        <div class="grid-container">
+
+          <label class="btn btn-secondary option" *ngFor="let option of question.options" [ngClass]="{'active': option === chosenOption }">
+            <input type="radio" name="options" id="{{option}}" autocomplete="off" [(ngModel)]="chosenOption" #options="ngModel"
+              [value]="option" required> {{option}}
+          </label>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row myrow" *ngIf="progress">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar"
+        [ngStyle]="{'width.%': progress}" [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+
+    <div class="form-group row myrow">
+      <button type="submit" class="btn btn-success button" [disabled]="!questionForm.form.valid">{{strings.submit}}</button>
+    </div>
+  </form>
+</div>

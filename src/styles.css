@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  margin: 2em;
+}
+h1 {
+  color: #72770a;
+  text-align: center;
+}
+h2, h3 {
+  color: #72770a;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body, input[text], button {
+  color: #888;
+  font-family: Cambria, Georgia;
+}
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  min-width: 200px;
+}

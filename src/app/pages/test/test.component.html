@@ -1,0 +1,8 @@
+<div *ngIf="questions" class="test-component">
+  <h1>{{test.name}}</h1>
+
+  <app-question 
+  [question]="currentQuestion"
+  [progress]="progress"
+  (submittedAnswer)="onSubmittedAnswer($event)"></app-question>
+</div>
